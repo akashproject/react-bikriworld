@@ -7,12 +7,19 @@ import {
     StatusBar,
     FlatList,
   } from 'react-native';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+
 import { LongPressGestureHandler, State,TapGestureHandler,Swipeable } from 'react-native-gesture-handler';
 
 const HomeScreen = () => {
     const [count, setCount] = useState(0);
     const [likeColour, setLikeColour] = useState('#28b5b5');
     const doubleTapRef = useRef(null);
+    const LeftContent = props => <Avatar.Icon {...props} icon="star" />
+
     const todoList = [
         { id: '1', text: 'Learn JavaScript' },
         { id: '2', text: 'Learn React' },
@@ -61,8 +68,26 @@ const HomeScreen = () => {
     });
   
     return (
-      <div>
-        <Text>Double and Single Tap Gesture Handler</Text>
+      <Container>
+         <Card>
+          <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+          <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
+          <Card.Content>
+            <Title>Card title</Title>
+            <Paragraph>Card content</Paragraph>
+          </Card.Content>
+         
+          <Card.Actions>
+            <Button>Cancel</Button>
+            <Button>Ok</Button>
+          </Card.Actions>
+        </Card>
+        <Row>
+          <Col xs={4}><Text>Double and Single Tap Gesture Handler</Text></Col>
+          <Col xs={4}><Text>Double and Single Tap Gesture Handler</Text></Col>
+          <Col xs={4} ><Text>Double and Single Tap Gesture Handler</Text></Col>
+        </Row>
+        
         <TapGestureHandler
             ref={doubleTapRef}
             onHandlerStateChange={onDoubleTapEvent}
@@ -70,8 +95,8 @@ const HomeScreen = () => {
             >
             <View style={styles.square} />
         </TapGestureHandler>
-      </div>
-    );
+        </Container>
+      );
 };
 
 export default HomeScreen;

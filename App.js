@@ -2,16 +2,26 @@
 import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import OnboardingScreen from './src/screens/onBoardingScreen';
-import HomeScreen from './src/screens/HomeScreen';
 import TabScreen from './src/screens/TabScreen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-const Stack = createStackNavigator();
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './HomeScreen';
+import ProfileScreen from './ProfileScreen';
+import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
+const Stack = createStackNavigator();
+const nativeStack = createNativeStackNavigator();
 const App = () => {
+  const theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'tomato',
+      secondary: 'yellow',
+    },
+  };
   const [isAppFirstLaunched, setIsAppFirstLaunched] = useState(null);
 
   useEffect(() => {
@@ -29,17 +39,16 @@ const App = () => {
 
   return (
     isAppFirstLaunched != null && (
-      <NavigationContainer>
-        <Stack.Navigator>
-          {isAppFirstLaunched && (
-            <Stack.Screen
-              name="OnboardingScreen"
-              component={OnboardingScreen}
-            />
-          )}
-          <Stack.Screen name="Tab" component={TabScreen} />
+      <PaperProvider  theme={theme} >
+        <NavigationContainer>
+          <TabScreen />
+          <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
         </Stack.Navigator>
-      </NavigationContainer>
+        </NavigationContainer>
+
+      </PaperProvider>
     )
   );
 };
