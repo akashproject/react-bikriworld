@@ -13,6 +13,7 @@ function DetailsScreen() {
     </View>
   );
 }
+
 const Stack = createNativeStackNavigator();
 
   const styles = StyleSheet.create({
@@ -40,9 +41,11 @@ const Stack = createNativeStackNavigator();
     },
 
   });
+
   const AccountScreen = ({ navigation }) => {
     return (
         <div>
+         
           <Container>
             <List.Item
               title="Personal Infomation"
@@ -69,8 +72,9 @@ const Stack = createNativeStackNavigator();
               title="Help"
               left={props => <List.Icon {...props} icon="folder" />}
             />
+            
             <Button icon="login" buttonColor="green" mode="contained" 
-              onPress={() => navigation.navigate("ProfileScreen") } >
+              onPress={() => navigation.navigate('Profile')} >
               Login In
             </Button>
           </Container>

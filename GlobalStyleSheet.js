@@ -12,5 +12,9 @@ export default StyleSheet.create({
     },
     appPaddingBottom:{
         paddingBottom:'15px'
+    },
+    textCenter: {
+      textAlign:'center'
     }
+
 });

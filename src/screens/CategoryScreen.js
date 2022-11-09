@@ -7,11 +7,12 @@ import {
     StatusBar,
     FlatList,
   } from 'react-native';
+import CategoryComponent from '../components/category';
 
   const CategoryScreen = () => {
     return (
         <div>
-          <Text>Hello Profile</Text>
+          <CategoryComponent/>
         </div>
       );
   };

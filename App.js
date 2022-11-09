@@ -7,8 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OnboardingScreen from './src/screens/onBoardingScreen';
 import TabScreen from './src/screens/TabScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './HomeScreen';
-import ProfileScreen from './ProfileScreen';
+import HomeScreen from './src/screens/HomeScreen'
+import ProfileScreen from './src/screens/ProfileScreen';
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 const Stack = createStackNavigator();
@@ -42,12 +42,7 @@ const App = () => {
       <PaperProvider  theme={theme} >
         <NavigationContainer>
           <TabScreen />
-          <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-        </Stack.Navigator>
         </NavigationContainer>
-
       </PaperProvider>
     )
   );

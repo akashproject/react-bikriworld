@@ -7,13 +7,12 @@ import {
     StatusBar,
     FlatList,
   } from 'react-native';
+import OrderComponent from '../components/orders';
 
   const OrderScreen = () => {
     return (
-        <div>
-          <Text>Hello Order</Text>
-        </div>
-      );
+      <OrderComponent/>
+    );
   };
   
   export default OrderScreen;

@@ -11,9 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-
 import { LongPressGestureHandler, State,TapGestureHandler,Swipeable } from 'react-native-gesture-handler';
-
 const HomeScreen = () => {
     const [count, setCount] = useState(0);
     const [likeColour, setLikeColour] = useState('#28b5b5');
